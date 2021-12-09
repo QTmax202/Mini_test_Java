@@ -89,10 +89,11 @@ public class Product {
     }
 
     public static void inputProductFix(Scanner input, Product[] product){
-        System.out.print("Nhap id san pham can sua in ra:");
+        System.out.print("Nhap id san pham can sua: ");
         int id = input.nextInt();
         for (int i = 0; i < product.length ; i++) {
             if (product[i].id == id){
+                input.nextLine();
                 System.out.print("Nhap ten san pham: ");
                 product[i].setName(input.nextLine());
                 System.out.print("Nhap gia san pham: ");
