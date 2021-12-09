@@ -89,16 +89,18 @@ public class Product {
     }
 
     public static void inputProductFix(Scanner input, Product[] product){
-        System.out.print("Nhap id san pham can in ra:");
+        System.out.print("Nhap id san pham can sua in ra:");
         int id = input.nextInt();
         for (int i = 0; i < product.length ; i++) {
             if (product[i].id == id){
-                product[i].setId(input.nextInt());
-                input.nextLine();
+                System.out.print("Nhap ten san pham: ");
                 product[i].setName(input.nextLine());
+                System.out.print("Nhap gia san pham: ");
                 product[i].setPrice(input.nextDouble());
                 input.nextLine();
+                System.out.print("Nhap loai san pham: ");
                 product[i].setType(input.nextLine());
+                System.out.print("Nhap don vi tien san pham: ");
                 product[i].setMoney(input.nextLine());
             }
         }
