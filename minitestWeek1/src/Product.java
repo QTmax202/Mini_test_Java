@@ -18,6 +18,26 @@ public class Product {
         this.type = type;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setMoney(String money) {
+        this.money = money;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -47,7 +67,14 @@ public class Product {
 
         sumProduct(products);
         System.out.println();
+
         inputProduct(input,products);
+        System.out.println();
+
+        inputProductFix(input,products);
+        for (Product i : products) {
+            System.out.println(i);
+        }
     }
 
 
@@ -57,6 +84,22 @@ public class Product {
         for (int i = 0; i < product.length ; i++) {
             if (product[i].id == id){
                 System.out.print(product[i]);
+            }
+        }
+    }
+
+    public static void inputProductFix(Scanner input, Product[] product){
+        System.out.print("Nhap id san pham can in ra:");
+        int id = input.nextInt();
+        for (int i = 0; i < product.length ; i++) {
+            if (product[i].id == id){
+                product[i].setId(input.nextInt());
+                input.nextLine();
+                product[i].setName(input.nextLine());
+                product[i].setPrice(input.nextDouble());
+                input.nextLine();
+                product[i].setType(input.nextLine());
+                product[i].setMoney(input.nextLine());
             }
         }
     }
