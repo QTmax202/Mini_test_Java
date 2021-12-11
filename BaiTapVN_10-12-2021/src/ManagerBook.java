@@ -1,6 +1,5 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.ListIterator;
 import java.util.Scanner;
 
@@ -126,7 +125,7 @@ public class ManagerBook {
                     allNovel(list2);
                     break;
                 case 14:
-                    moneyOfBook(input,list);
+                    moneyOfBook(input, list);
                     break;
                 case 0:
                     System.exit(0);
@@ -136,7 +135,7 @@ public class ManagerBook {
         }
     }
 
-    public static void bookMaxPrice (ArrayList<Book> list) {
+    public static void bookMaxPrice(ArrayList<Book> list) {
         double max = list.get(0).getPrice();
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
@@ -148,7 +147,7 @@ public class ManagerBook {
         System.out.println(list.get(index));
     }
 
-    public static void bookMinPrice (ArrayList<Book> list) {
+    public static void bookMinPrice(ArrayList<Book> list) {
         double min = list.get(0).getPrice();
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
@@ -160,14 +159,14 @@ public class ManagerBook {
         System.out.println(list.get(index));
     }
 
-    public static void allBook (ArrayList<Book> list) {
+    public static void allBook(ArrayList<Book> list) {
         ListIterator<Book> iterator = list.listIterator();
         while (iterator.hasNext()) {
             System.out.println((Book) iterator.next());
         }
     }
 
-    public static void findBooksByGenre (Scanner scanner, ArrayList<ScienceBook> list1) {
+    public static void findBooksByGenre(Scanner scanner, ArrayList<ScienceBook> list1) {
         scanner.nextLine();
         System.out.print("Thể loại cần tìm: ");
         String str = scanner.nextLine();
@@ -178,7 +177,7 @@ public class ManagerBook {
         }
     }
 
-    public static void findBooksByAuthor (Scanner scanner, ArrayList<Novel> list2) {
+    public static void findBooksByAuthor(Scanner scanner, ArrayList<Novel> list2) {
         scanner.nextLine();
         System.out.print("Tác giả cần tìm: ");
         String str1 = scanner.nextLine();
@@ -189,7 +188,7 @@ public class ManagerBook {
         }
     }
 
-    public static void avgPriceScienceBook (ArrayList<ScienceBook> list1) {
+    public static void avgPriceScienceBook(ArrayList<ScienceBook> list1) {
         double sum = 0.0;
         for (int i = 0; i < list1.size(); i++) {
             sum += list1.get(i).getPrice();
@@ -198,21 +197,21 @@ public class ManagerBook {
         System.out.println();
     }
 
-    public static void allScienceBooks (ArrayList<ScienceBook> list1){
+    public static void allScienceBooks(ArrayList<ScienceBook> list1) {
         ListIterator<ScienceBook> iterator1 = list1.listIterator();
         while (iterator1.hasNext()) {
             System.out.println((ScienceBook) iterator1.next());
         }
     }
 
-    public static void allNovel (ArrayList<Novel> list2){
+    public static void allNovel(ArrayList<Novel> list2) {
         ListIterator<Novel> iterator2 = list2.listIterator();
         while (iterator2.hasNext()) {
             System.out.println((Novel) iterator2.next());
         }
     }
 
-    public static void moneyOfBook (Scanner input, ArrayList<Book> list){
+    public static void moneyOfBook(Scanner input, ArrayList<Book> list) {
         System.out.print("các quyển sách có giá tiền bẳng: ");
         double price = input.nextDouble();
         for (int i = 0; i < list.size(); i++) {
@@ -222,7 +221,7 @@ public class ManagerBook {
         }
     }
 
-    public static void fundOfBook (Scanner input , ArrayList<Book> list){
+    public static void fundOfBook(Scanner input, ArrayList<Book> list) {
         System.out.print("Giá min: ");
         double price1 = input.nextDouble();
         System.out.print("Giá max: ");
