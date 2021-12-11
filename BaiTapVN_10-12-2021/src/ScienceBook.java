@@ -3,8 +3,6 @@ import java.time.LocalDate;
 public class ScienceBook extends Book{
     private String category;
 
-//    public ScienceBook() {}
-
     public ScienceBook(String name, double price, int quantity, LocalDate input, String category) {
         super(name, price, quantity, input);
         this.category = category;
@@ -21,7 +19,7 @@ public class ScienceBook extends Book{
     @Override
     public String toString() {
         return super.toString()+
-                ", Science book{ "+
+                ", Science book { "+
                 "Caregory=" + category +
                 " }"
                 ;

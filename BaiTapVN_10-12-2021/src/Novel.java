@@ -3,9 +3,6 @@ import java.time.LocalDate;
 public class Novel extends Book {
     private String author;
 
-//    public Novel() {
-//    }
-
     public Novel(String name, double price, int quantity, LocalDate input, String author) {
         super(name, price, quantity, input);
         this.author = author;
@@ -22,7 +19,7 @@ public class Novel extends Book {
     @Override
     public String toString() {
         return super.toString() +
-                ", Novel book{ " +
+                ", Novel book { " +
                 "Author=" + author +
                 " }"
                 ;

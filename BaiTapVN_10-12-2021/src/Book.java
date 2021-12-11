@@ -7,9 +7,6 @@ public class Book {
     private LocalDate publicationDate;
     public static double sum = 0;
 
-//    public Book() {
-//    }
-
     public Book(String name, double price, int quantity, LocalDate input) {
         this.name = name;
         this.price = price;
@@ -50,13 +47,9 @@ public class Book {
         this.publicationDate = publicationDate;
     }
 
-//    public double getSum(){
-//        return sum;
-//    }
-
     @Override
     public String toString() {
-        return "Book{" +
+        return "Book {" +
                 "name='" + name + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
