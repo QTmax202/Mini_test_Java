@@ -61,9 +61,9 @@ public class ManagerBook {
         int choice = -1;
         double sum = 0;
         while (choice != 0) {
-            System.out.println("1. Sách thường");
-            System.out.println("2. Sách khoa học");
-            System.out.println("3. Sách tiểu thuyết");
+            System.out.println("1. Nhập sách thường");
+            System.out.println("2. Nhập sách khoa học");
+            System.out.println("3. Nhập sách tiểu thuyết");
             System.out.println("4. Hiển thị tất cả quyển sách");
             System.out.println("5. Hiển thị tổng giá tiền tất cả sách");
             System.out.println("6. Hiển thị sách có giá tiền cao nhất");
