@@ -41,6 +41,7 @@ public class Main {
                     managePerson.sortTheList();
                     break;
                 case 7:
+                    System.out.println(Student.sumAvg);
                     break;
                 case 8:
                     managePerson.addStudent();
