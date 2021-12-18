@@ -11,13 +11,12 @@ public class Main {
         do {
             System.out.println("Menu");
             System.out.println("1. Hiển thị danh sách");
-            System.out.println("2. Thêm một người vào danh sách");
+            System.out.println("2. Thêm người vào danh sách");
             System.out.println("3. Tìm vị trí một người trong danh sách");
             System.out.println("4. Xoá 1 người trong danh sách theo mã");
             System.out.println("5. Sửa thông tin của 1 người theo mã");
             System.out.println("6. Sắp xếp danh sách theo điểm trung bình");
             System.out.println("7. Tính tổng điểm");
-            System.out.println("8. Thêm một học viên vào danh sách");
             System.out.println("0. Thoát");
             System.out.print("Nhập lựa chọn của bạn: ");
             choice = input.nextInt();
@@ -26,7 +25,21 @@ public class Main {
                     managePerson.displayPerson();
                     break;
                 case 2:
-                    managePerson.addPerson();
+                    int choice1;
+                    do {
+                        System.out.println("1. Người");
+                        System.out.println("2. Sinh viên");
+                        System.out.print("Nhập lựa chọn của bạn: ");
+                        choice1 = input.nextInt();
+                        switch (choice1) {
+                            case 1:
+                                managePerson.addPerson(choice1);
+                                break;
+                            case 2:
+                                managePerson.addPerson(choice1);
+                                break;
+                        }
+                    } while (choice1 != 0);
                     break;
                 case 3:
                     managePerson.findPerson();
@@ -41,10 +54,7 @@ public class Main {
                     managePerson.sortTheList();
                     break;
                 case 7:
-                    System.out.println(Student.sumAvg);
-                    break;
-                case 8:
-                    managePerson.addStudent();
+                    managePerson.totalAveragePoint();
                     break;
                 case 0:
                     System.exit(0);

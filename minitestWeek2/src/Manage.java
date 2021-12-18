@@ -1,11 +1,10 @@
 
-
 public interface Manage {
     void displayPerson();
-    void addPerson();
-    void addStudent();
+    void addPerson(int choice);
     void findPerson();
     void deletePerson();
-    void fixperson();
+    Person fixperson();
     void sortTheList();
+    double totalAveragePoint();
 }

@@ -3,11 +3,6 @@ public class Person {
     private int age;
     private int id;
 
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
     public Person(String name, int age, int id) {
         this.name = name;
         this.age = age;
@@ -37,7 +32,8 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
+                "id= " + id +
+                ", name= " + name +
                 ", age=" + age +
                 '}';
     }

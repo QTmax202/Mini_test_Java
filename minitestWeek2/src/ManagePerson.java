@@ -7,7 +7,6 @@ public class ManagePerson implements Manage, Comparator<Student> {
     Scanner input = new Scanner(System.in);
     private ArrayList<Person> list;
     private static int id = 1;
-    private Comparator<? super Person> Student;
 
     public ManagePerson(ArrayList<Person> list) {
         this.list = list;
@@ -22,22 +21,21 @@ public class ManagePerson implements Manage, Comparator<Student> {
     }
 
     @Override
-    public void addPerson() {
-        list.add(createPerson(input,id));
+    public void addPerson(int choice) {
+        list.add(createPerson(input, id, choice));
         id++;
     }
 
-    @Override
-    public void addStudent() {
-        list.add(createStudent(input,id));
-        id++;
-    }
 
     @Override
     public void findPerson() {
         System.out.print("Nhập id người cần tìm: ");
         int id = input.nextInt();
-        System.out.println(list.indexOf(id));;
+        for (int i = 0; i < list.size(); i++) {
+            if (id == list.get(i).getId()) {
+                System.out.println(list.get(i));
+            }
+        }
     }
 
     @Override
@@ -47,82 +45,110 @@ public class ManagePerson implements Manage, Comparator<Student> {
         for (int i = 0; i < list.size(); i++) {
             if (id == list.get(i).getId()) {
                list.remove(i);
+                System.out.printf("Đã xóa người có id = %d",id);
             }
         }
     }
 
     @Override
-    public void fixperson() {
-        System.out.print("Nhập id người cần sửa: ");
+    public Person fixperson() {
+        Person PersonUpdate = null;
+        Student studentUpdate = null;
+        System.out.print("Nhập id người cần tìm: ");
         int id = input.nextInt();
-        for (int i = 0; i < list.size(); i++) {
-            if (id == list.get(i).getId()) {
-                if (list.get(i) instanceof Student){
-                    list.set(i,editPerson(input));
-                } else if (list.get(i) instanceof Person){
-                    list.set(i,editPerson(input));
-                }
+        for (Person Person : list) {
+            if (Person.getId() == id && Person instanceof Student) {
+                studentUpdate = (Student) Person;
+            } else if (Person.getId() == id) {
+                PersonUpdate = Person;
             }
         }
+        if (PersonUpdate != null) {
+            input.nextLine();
+            System.out.print("Nhập tên mới: ");
+            String name = input.nextLine();
+            if (name.equals("")) {
+                PersonUpdate.setName(PersonUpdate.getName());
+            } else {
+                PersonUpdate.setName(name);
+            }
+            System.out.print("Nhập tuổi mới: ");
+            PersonUpdate.setAge(input.nextInt());
+            input.nextLine();
+            return PersonUpdate;
+        } else if (studentUpdate != null) {
+            input.nextLine();
+            System.out.print("Nhập tên mới: ");
+            studentUpdate.setName(input.nextLine());
+            System.out.print("Nhập tuổi mới: ");
+            studentUpdate.setAge(input.nextInt());
+            System.out.print("Nhập điểm mới: ");
+            studentUpdate.setAvgPoint(input.nextDouble());
+            return studentUpdate;
+        }
+        return null;
     }
 
 
     @Override
     public void sortTheList() {
-        list.sort(Student);
+        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Person> Persons1 = new ArrayList<>();
+        for (Person Person : list) {
+            if (Person instanceof Student) {
+                students.add((Student) Person);
+            } else {
+                Persons1.add(Person);
+            }
+        }
+
+        students.sort(new Comparator<Student>() {
+            @Override
+            public int compare(Student o1, Student o2) {
+                if (o1.getAvgPoint() > o2.getAvgPoint()) {
+                    return 1;
+                } else if (o1.getAvgPoint() < o2.getAvgPoint()) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        });
+
+        Persons1.addAll(students);
+        list = Persons1;
+        System.out.println("Sắp xếp thành công!!!");
     }
 
-    public static Person createPerson(Scanner scanner,int id){
+    @Override
+    public double totalAveragePoint() {
+        double totalPoint = 0;
+        for (Person Person : list) {
+            if (Person instanceof Student) {
+                totalPoint += ((Student) Person).getAvgPoint();
+            }
+        }
+        return totalPoint;
+    }
+
+    public static Person createPerson(Scanner scanner,int id, int choice){
         scanner.nextLine();
         System.out.print("Nhập tên : ");
         String name = scanner.nextLine();
         System.out.print("Nhập tuổi: ");
         int age = scanner.nextInt();
-        return new Person(name, age, id);
-    }
-
-    public static Student createStudent(Scanner scanner,int id){
-        scanner.nextLine();
-        System.out.print("Nhập tên : ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập tuổi: ");
-        int age = scanner.nextInt();
-        System.out.print("Nhập điểm trung bình: ");
-        int avgPoint = scanner.nextInt();
-        return (Student) new Student(name, age, avgPoint, id);
-    }
-
-    public static Person editPerson(Scanner scanner){
-        scanner.nextLine();
-        System.out.print("Nhập tên : ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập tuổi: ");
-        int age = scanner.nextInt();
-        return new Person(name, age);
-    }
-
-    public static Student editStudent(Scanner scanner){
-        scanner.nextLine();
-        System.out.print("Nhập tên : ");
-        String name = scanner.nextLine();
-        System.out.print("Nhập tuổi: ");
-        int age = scanner.nextInt();
-        System.out.print("Nhập điểm trung bình: ");
-        int avgPoint = scanner.nextInt();
-        return (Student) new Student(name, age, avgPoint);
+        if (choice == 1) {
+            return new Person(name, age, id);
+        } else if (choice == 2) {
+            System.out.print("Nhập vào điểm trung bình: ");
+            double avgPoint = scanner.nextDouble();
+            return (Student) new Student(name, age, avgPoint, id);
+        }
+        return null;
     }
 
     @Override
     public int compare(Student o1, Student o2) {
-        if(o1 != null && o2 != null){
-            if (o1.getAvgPoint() > o2.getAvgPoint()){
-                return 1;
-            } else if (o1.getAvgPoint() < o2.getAvgPoint()){
-                return -1;
-            } else {
-                return 0;
-            }
-        }
         return 0;
     }
 }
