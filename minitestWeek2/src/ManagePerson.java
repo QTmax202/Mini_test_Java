@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.ListIterator;
 import java.util.Scanner;
 
-public class ManagePerson implements Manage, Comparator<Student> {
+public class ManagePerson implements Manage{
     Scanner input = new Scanner(System.in);
     private ArrayList<Person> list;
     private static int id = 1;
@@ -145,10 +145,5 @@ public class ManagePerson implements Manage, Comparator<Student> {
             return (Student) new Student(name, age, avgPoint, id);
         }
         return null;
-    }
-
-    @Override
-    public int compare(Student o1, Student o2) {
-        return 0;
     }
 }
