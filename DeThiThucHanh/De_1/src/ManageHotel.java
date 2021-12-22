@@ -127,12 +127,11 @@ public class ManageHotel {
     }
 
 //    public void fixCustomerByCMND() {
-//    input.nextLine();
+//        input.nextLine();
 //        System.out.print("Nhập CMND khách hàng cần sửa: ");
-//        long id2 = input.nextLong();
-//        for (Person customer : customers) {
+//        String id2 = input.nextLoine();
+//        for (Hotel customer3 : customersOfHotel) {
 //            if (customer.getIdCard().equals(id2)) {
-//                Hotel customer3 = (Hotel) customer;
 //                input.nextLine();
 //                System.out.print("Nhập lại tên khách hàng: ");
 //                customer3.setName(input.nextLine());
