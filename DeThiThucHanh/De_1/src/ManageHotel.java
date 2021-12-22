@@ -25,7 +25,7 @@ public class ManageHotel {
 //        return new Person(name, date, id);
 //    }
 
-//    public Person createCustomerOfHotel(Scanner input) {
+//    public Hotel createCustomerOfHotel(Scanner input) {
 //        System.out.print("Nhập tên phòng: ");
 //        int nameRoom = input.nextInt();
 //        System.out.print("Nhập số ngày ở: ");
