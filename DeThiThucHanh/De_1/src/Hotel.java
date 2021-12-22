@@ -7,8 +7,7 @@ public class Hotel extends Person{
     private double roomRates;
 //    private Person customers;
 //
-//    public Hotel(String name, String date, String idCard, int nameRoom, int daysInHotel, String kindOfRoom, double roomRates, Person customers) {
-//        super(name, date, idCard);
+//    public Hotel(int nameRoom, int daysInHotel, String kindOfRoom, double roomRates, Person customers) {
 //        this.nameRoom = nameRoom;
 //        this.daysInHotel = daysInHotel;
 //        this.kindOfRoom = kindOfRoom;
