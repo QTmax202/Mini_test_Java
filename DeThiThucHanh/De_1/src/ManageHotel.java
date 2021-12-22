@@ -127,12 +127,9 @@ public class ManageHotel {
         }
     }
 
-//    public void fixCustomerByCMND() {
-//        input.nextLine();
-//        System.out.print("Nhập CMND khách hàng cần sửa: ");
-//        String id2 = input.nextLoine();
-//        for (Hotel customer3 : customersOfHotel) {
-//            if (customer.getIdCard().equals(id2)) {
+//    public void fixCustomerByCMND(String id2) {
+//        for (Person customer3 : customersOfHotel) {
+//            if (customer3.getIdCard().equals(id2)) {
 //                input.nextLine();
 //                System.out.print("Nhập lại tên khách hàng: ");
 //                customer3.setName(input.nextLine());
@@ -145,15 +142,26 @@ public class ManageHotel {
 //                } else {
 //                    customer3.setIdCard(idCad1);
 //                }
-//                System.out.print("Nhập lại tên phòng: ");
-//                customer3.setNameRoom(input.nextInt());
-//                System.out.print("Nhập lại số ngày ở: ");
-//                customer3.setDaysInHotel(input.nextInt());
+//            }
+//        }
+//    }
+
+//    public void fixCustomerOfHotelByCMND() {
+//        input.nextLine();
+//        System.out.print("Nhập CMND khách hàng cần sửa: ");
+//        String id3 = input.nextLoine();
+//        for (Hotel customer4 : customersOfHotel) {
+//            if (customer4.getCustomers().getIdCard().equals(id3)) {
+//                fixCustomerByCMND(id3);
+//                System.out.print("Nhập tên phòng: ");
+//                customer4.setNameRoom(input.nextInt());
+//                System.out.print("Nhập số ngày ở: ");
+//                customer4.setDaysInHotel(input.nextInt());
 //                input.nextLine();
-//                System.out.print("Nhập lại loại phòng: ");
-//                customer3.setKindOfRoom(input.nextLine());
-//                System.out.print("Nhập lại giá phòng: ");
-//                customer3.setRoomRates(input.nextDouble());
+//                System.out.print("Nhập loại phòng: ");
+//                customer4.setKindOfRoom(input.nextLine());
+//                System.out.print("Nhập giá phòng: ");
+//                customer4.setRoomRates(input.nextDouble());
 //            }
 //        }
 //    }
