@@ -11,27 +11,6 @@ public class ManageHotel {
 //        customersOfHotel = new ArrayList<>();
     }
 
-    public Person createCustomer(Scanner input) {
-        input.nextLine();
-        System.out.print("Nhập tên khách hàng: ");
-        String name = input.nextLine();
-        System.out.print("Nhập ngày sinh khách hàng: ");
-        String date = input.nextLine();
-        System.out.print("Nhập CMND khách hàng: ");
-        input.nextLine();
-        String id = input.nextLine();
-        id = checkCMND(id, input);
-        System.out.print("Nhập tên phòng: ");
-        int nameRoom = input.nextInt();
-        System.out.print("Nhập số ngày ở: ");
-        int daysInHotel = input.nextInt();
-        input.nextLine();
-        System.out.print("Nhập loại phòng: ");
-        String kindOfRoom = input.nextLine();
-        System.out.print("Nhập giá phòng: ");
-        double roomRates = input.nextDouble();
-        return new Hotel(name, date, id, nameRoom, daysInHotel, kindOfRoom, roomRates);
-    }
 
 //    public Person createCustomer(Scanner input) {
 //        input.nextLine();
@@ -67,6 +46,28 @@ public class ManageHotel {
 //        }
 //        return null;
 //    }
+
+    public Person createCustomer(Scanner input) {
+        input.nextLine();
+        System.out.print("Nhập tên khách hàng: ");
+        String name = input.nextLine();
+        System.out.print("Nhập ngày sinh khách hàng: ");
+        String date = input.nextLine();
+        System.out.print("Nhập CMND khách hàng: ");
+        input.nextLine();
+        String id = input.nextLine();
+        id = checkCMND(id, input);
+        System.out.print("Nhập tên phòng: ");
+        int nameRoom = input.nextInt();
+        System.out.print("Nhập số ngày ở: ");
+        int daysInHotel = input.nextInt();
+        input.nextLine();
+        System.out.print("Nhập loại phòng: ");
+        String kindOfRoom = input.nextLine();
+        System.out.print("Nhập giá phòng: ");
+        double roomRates = input.nextDouble();
+        return new Hotel(name, date, id, nameRoom, daysInHotel, kindOfRoom, roomRates);
+    }
 
     public static String checkCMND(String idCad, Scanner input) {
         for (Person customer : customers) {
