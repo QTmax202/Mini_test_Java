@@ -55,11 +55,11 @@ public class Hotel extends Person{
         this.roomRates = roomRates;
     }
 
-//    public ArrayList<Person> getCustomers() {
+//    public Person getCustomers() {
 //        return customers;
 //    }
 //
-//    public void setCustomers(ArrayList<Person> customers) {
+//    public void setCustomers(Person customers) {
 //        this.customers = customers;
 //    }
 
