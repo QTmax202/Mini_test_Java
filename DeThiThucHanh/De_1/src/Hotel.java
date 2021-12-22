@@ -5,15 +5,15 @@ public class Hotel extends Person{
     private int daysInHotel;
     private String kindOfRoom;
     private double roomRates;
-//    private Person customers;
-//
-//    public Hotel(int nameRoom, int daysInHotel, String kindOfRoom, double roomRates, Person customers) {
-//        this.nameRoom = nameRoom;
-//        this.daysInHotel = daysInHotel;
-//        this.kindOfRoom = kindOfRoom;
-//        this.roomRates = roomRates;
-//        this.customers = customers;
-//    }
+    private Person customers;
+
+    public Hotel(int nameRoom, int daysInHotel, String kindOfRoom, double roomRates, Person customers) {
+        this.nameRoom = nameRoom;
+        this.daysInHotel = daysInHotel;
+        this.kindOfRoom = kindOfRoom;
+        this.roomRates = roomRates;
+        this.customers = customers;
+    }
 
     public Hotel(String name, String date, String idCard, int nameRoom, int daysInHotel, String kindOfRoom, double roomRates) {
         super(name, date, idCard);
@@ -67,4 +67,9 @@ public class Hotel extends Person{
     public String toString() {
         return String.format("%-15s",nameRoom)+super.toString()+ String.format("%-15d%-15s%-15.2f",daysInHotel,kindOfRoom,roomRates);
     }
+
+//    @Override
+//    public String toString() {
+//        return String.format("%-15d%-15s%-15.2f%-15s",daysInHotel,kindOfRoom,roomRates,customers);
+//    }
 }
