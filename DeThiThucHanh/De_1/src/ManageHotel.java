@@ -56,15 +56,16 @@ public class ManageHotel {
 //        String kindOfRoom = input.nextLine();
 //        System.out.print("Nhập giá phòng: ");
 //        double roomRates = input.nextDouble();
-//        System.out.print("Nhập CMND khách hàng: ");
+//        System.out.print("Nhập CMND khách hàng thuê phòng: ");
 //        input.nextLine();
 //        String id = input.nextLine();
 //        for (int i = 0; i < customers.size(); i++) {
 //            if (customers.get(i).getIdCard().equals(id)){
 //                Person customer = customers.get(i);
+//                return new Hotel(nameRoom, daysInHotel, kindOfRoom, roomRates, customer);
 //            }
 //        }
-//        return new Hotel(nameRoom, daysInHotel, kindOfRoom, roomRates, customer);
+//        return null;
 //    }
 
     public static String checkCMND(String idCad, Scanner input) {
