@@ -68,7 +68,7 @@ public class ManagerStudent {
     }
 
     public void displayStudent() {
-        System.err.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
+        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
         for (Student student : students) {
             System.out.println(student);
         }
@@ -81,7 +81,7 @@ public class ManagerStudent {
                 max = student.getAvgPoint();
             }
         }
-        System.err.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
+        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
         for (Student student : students) {
             if (student.getAvgPoint() == max) {
                 System.out.println(student);
@@ -114,7 +114,7 @@ public class ManagerStudent {
     }
 
     public void rankStudent(){
-        System.err.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
+        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
         students.sort(((o1, o2) -> (int) (o1.getAvgPoint() - o2.getAvgPoint())));
         for (Student student : students){
             System.out.println(student);
@@ -129,7 +129,7 @@ public class ManagerStudent {
                 check = true;
             }
         }
-        System.err.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
+        System.out.printf("%-15s%-15s%-15s%-15s%-15s%-15s%-15s\n", "ID", "Ten", "Tuoi", "diem Toan", "diem Ly", "diem Hoa", "diem trung binh");
         if (check){
             for (Student student : students){
                 if (student.getId() == id){
