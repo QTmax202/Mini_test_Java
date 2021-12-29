@@ -203,13 +203,13 @@ public class Manager {
         return result;
     }
 
-    private static void printCountry(ArrayList<String> country) {
+    private static void printCountry(ArrayList<String> student) {
         System.out.println(
-                "Country [Ten= " + country.get(0)
-                        + ", tuoi= " + country.get(1)
-                        + ", gioi tinh=" + country.get(2)
-                        + ", noi o=" + country.get(3)
-                        + ", diem trung binh=" + country.get(4)
+                "Country [Ten= " + student.get(0)
+                        + ", tuoi= " + student.get(1)
+                        + ", gioi tinh=" + student.get(2)
+                        + ", noi o=" + student.get(3)
+                        + ", diem trung binh=" + student.get(4)
                         + "]");
     }
 }
