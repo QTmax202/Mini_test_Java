@@ -1,14 +1,18 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Scanner;
 
 public class Manager {
     public static ArrayList<Student> students;
     Scanner input = new Scanner(System.in);
+    public static final String PATH_NAME = "src/student.csv";
 
     public Manager() {
-        students = new ArrayList<>();
+        students = readFile(PATH_NAME);
+    }
+
+    public static ArrayList<Student> getStudents() {
+        return students;
     }
 
     public Student createStudent() {
@@ -27,11 +31,12 @@ public class Manager {
         point = checkAPoint(point, input);
         Student student = new Student(name, age, sex, address, point);
         students.add(student);
+        writeFile(students, PATH_NAME);
         return student;
     }
 
     public int checkAge(int age, Scanner input) {
-        while (age >= 18 && age <= 60) {
+        while (age < 18 || age > 60) {
             System.out.print("sai khoang tuoi: ");
             age = input.nextInt();
         }
@@ -39,7 +44,7 @@ public class Manager {
     }
 
     public double checkAPoint(double piont, Scanner input) {
-        while (piont >= 0 && piont <= 10) {
+        while (piont < 0 || piont > 10) {
             System.out.print("sai khoang diem: ");
             piont = input.nextInt();
         }
@@ -61,7 +66,7 @@ public class Manager {
             case 3:
                 return "Orther";
             default:
-                return null;
+                return choiceSex(input);
         }
     }
 
@@ -87,6 +92,7 @@ public class Manager {
         } else {
             System.out.println("Xóa không thành công!");
         }
+        writeFile(students, PATH_NAME);
     }
 
     public void displayStudentByPoint() {
@@ -100,20 +106,20 @@ public class Manager {
     public void displayStudentByFrom() {
         for (Student student : students) {
             if (student.getAgePoint() >= 8) {
-                System.out.printf("%s- %.2f- %s", student.getName(), student.getAgePoint(), "loai gioi");
+                System.out.printf("%s- %.2f- %s\n", student.getName(), student.getAgePoint(), "loai gioi");
             } else if (student.getAgePoint() >= 6) {
-                System.out.printf("%s- %.2f- %s", student.getName(), student.getAgePoint(), "loai kha");
+                System.out.printf("%s- %.2f- %s\n", student.getName(), student.getAgePoint(), "loai kha");
             } else if (student.getAgePoint() >= 4.5) {
-                System.out.printf("%s- %.2f- %s", student.getName(), student.getAgePoint(), "loai trung binh");
+                System.out.printf("%s- %.2f- %s\n", student.getName(), student.getAgePoint(), "loai trung binh");
             } else {
-                System.out.printf("%s- %.2f- %s", student.getName(), student.getAgePoint(), "loai yeu");
+                System.out.printf("%s- %.2f- %s\n", student.getName(), student.getAgePoint(), "loai yeu");
             }
         }
     }
 
     public void findStudent() {
         input.nextLine();
-        System.out.print("Nhap ten sinh vien can xoa: ");
+        System.out.print("Nhap ten sinh vien can sua: ");
         String name = input.nextLine();
         for (Student student : students) {
             if (student.getName().equals(name)) {
@@ -138,78 +144,41 @@ public class Manager {
                 System.out.println("Sửa thành công!");
             }
         }
+        writeFile(students, PATH_NAME);
     }
 
-    public void export(){
+    public void writeFile(ArrayList<Student> students, String path) {
         try {
-            BufferedWriter buff = new BufferedWriter(new FileWriter("src/student.csv"));
-
-            StringBuilder strb = new StringBuilder();
-            strb.append("Tên,");
-            strb.append("Tuổi,");
-            strb.append("Giới tính,");
-            strb.append("Nơi ở,");
-            strb.append("Điểm trung bình");
-            strb.append('\n');
-
-            if (students.size() > 0){
-                for (Student student : students) {
-                    strb.append(student.getName());
-                    strb.append(',');
-                    strb.append(student.getAge());
-                    strb.append(',');
-                    strb.append(student.getSex());
-                    strb.append(',');
-                    strb.append(student.getAddress());
-                    strb.append(',');
-                    strb.append(student.getAgePoint());
-                    strb.append('\n');
-                }
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path));
+            for (Student student : students) {
+                bufferedWriter.write(student.getName() + "," + student.getAge() + ","
+                        + student.getSex() + "," + student.getAddress() + "," + student.getAgePoint() +"\n");
             }
-            buff.write(strb.toString());
-            System.out.println("Xuất file thành công!");
+            bufferedWriter.close();
+            System.out.println("Write file successfully!");
         } catch (IOException e) {
-            e.printStackTrace();
+            System.err.println(e.getMessage());
         }
     }
 
-    public void readStudent(){
-        BufferedReader bufferedReader = null;
+    public ArrayList<Student> readFile(String path) {
+        ArrayList<Student> students = new ArrayList<>();
+        File file = new File(PATH_NAME);
+
         try {
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(path));
             String line;
-            bufferedReader = new BufferedReader(new FileReader("src/student.csv"));
             while ((line = bufferedReader.readLine()) != null) {
-                printCountry(parseCsvLine(line));
+                String[] strings = line.split(",");
+                students.add(new Student(strings[0], Integer.parseInt(strings[1]), strings[2], strings[3], Double.parseDouble(strings[4])));
             }
 
         } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (bufferedReader != null)
-                    bufferedReader.close();
-            } catch (IOException crunchyException) {
-                crunchyException.printStackTrace();
-            }
+            System.err.println(e.getMessage());
         }
-    }
-
-    public static ArrayList<String> parseCsvLine(String csvLine) {
-        ArrayList<String> result = new ArrayList<>();
-        if (csvLine != null) {
-            String[] splitData = csvLine.split(",");
-            Collections.addAll(result, splitData);
-        }
-        return result;
-    }
-
-    private static void printCountry(ArrayList<String> student) {
-        System.out.println(
-                "Country [Ten= " + student.get(0)
-                        + ", tuoi= " + student.get(1)
-                        + ", gioi tinh=" + student.get(2)
-                        + ", noi o=" + student.get(3)
-                        + ", diem trung binh=" + student.get(4)
-                        + "]");
+        return students;
     }
 }

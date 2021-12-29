@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -7,16 +8,17 @@ public class Main {
 
         int choice;
         do {
-            System.out.println("Menu");
-            System.out.println("1. Nhập thêm sinh viên");
-            System.out.println("2. Hiển thị danh sách sinh viên");
-            System.out.println("3. Sửa sinh viên theo tên sinh viên");
-            System.out.println("4. Xóa sinh viên theo tên sinh viên");
-            System.out.println("5. Hiển thị danh sách sinh viên có điểm trung bình trên 7.5");
-            System.out.println("6. Hiển thị danh sách sinh viên theo cú pháp(tên- điểm trung binh- xếp loại");
-            System.out.println("7. Ghi danh sách sinh viên ra file");
-            System.out.println("8. Đọc danh sách sinh viên từ file");
-            System.out.println("0. Thoát");
+            System.out.println("+__________________________꧁☆☬ⓂⒺⓃⓊ☬☆꧂____________________________+");
+            System.out.println("|          1. Nhập thêm sinh viên                                      |");
+            System.out.println("|          2. Hiển thị danh sách sinh viên                             |");
+            System.out.println("|          3. Sửa sinh viên theo tên sinh viên                         |");
+            System.out.println("|          4. Xóa sinh viên theo tên sinh viên                         |");
+            System.out.println("|          5. Hiển thị danh sách sinh viên có điểm trung bình trên 7.5 |");
+            System.out.println("|          6. Hiển thị danh sách sinh viên theo xếp loại               |");
+            System.out.println("|          7. Ghi danh sách sinh viên ra file                          |");
+            System.out.println("|          8. Đọc danh sách sinh viên từ file                          |");
+            System.out.println("|          0. Thoát                                                    |");
+            System.out.println("+----------------------------------------------------------------------+");
             System.out.print("Nhập lựa chọn: ");
             choice = input.nextInt();
             switch (choice) {
@@ -42,12 +44,13 @@ public class Main {
                     manager.displayStudentByFrom();
                     break;
                 case 7:
-                    manager.export();
+                    manager.writeFile(Manager.getStudents(), Manager.PATH_NAME);
                     break;
                 case 8:
-                    manager.readStudent();
+                    ArrayList<Student> students = manager.readFile(Manager.PATH_NAME);
+                    students.forEach(System.out::println);
                     break;
             }
-        } while (choice != 0);
+        } while (true);
     }
 }
