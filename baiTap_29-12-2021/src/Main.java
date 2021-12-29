@@ -15,6 +15,7 @@ public class Main {
             System.out.println("5. Hiển thị danh sách sinh viên có điểm trung bình trên 7.5");
             System.out.println("6. Hiển thị danh sách sinh viên theo cú pháp(tên- điểm trung binh- xếp loại");
             System.out.println("7. Ghi danh sách sinh viên ra file");
+            System.out.println("8. Đọc danh sách sinh viên từ file");
             System.out.println("0. Thoát");
             System.out.print("Nhập lựa chọn: ");
             choice = input.nextInt();
@@ -42,6 +43,9 @@ public class Main {
                     break;
                 case 7:
                     manager.export();
+                    break;
+                case 8:
+                    manager.readStudent();
                     break;
             }
         } while (choice != 0);

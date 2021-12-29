@@ -1,7 +1,6 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Manager {
@@ -140,6 +139,7 @@ public class Manager {
             }
         }
     }
+
     public void export(){
         try {
             BufferedWriter buff = new BufferedWriter(new FileWriter("src/student.csv"));
@@ -171,5 +171,45 @@ public class Manager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void readStudent(){
+        BufferedReader bufferedReader = null;
+        try {
+            String line;
+            bufferedReader = new BufferedReader(new FileReader("src/student.csv"));
+            while ((line = bufferedReader.readLine()) != null) {
+                printCountry(parseCsvLine(line));
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (bufferedReader != null)
+                    bufferedReader.close();
+            } catch (IOException crunchyException) {
+                crunchyException.printStackTrace();
+            }
+        }
+    }
+
+    public static ArrayList<String> parseCsvLine(String csvLine) {
+        ArrayList<String> result = new ArrayList<>();
+        if (csvLine != null) {
+            String[] splitData = csvLine.split(",");
+            Collections.addAll(result, splitData);
+        }
+        return result;
+    }
+
+    private static void printCountry(ArrayList<String> country) {
+        System.out.println(
+                "Country [Ten= " + country.get(0)
+                        + ", tuoi= " + country.get(1)
+                        + ", gioi tinh=" + country.get(2)
+                        + ", noi o=" + country.get(3)
+                        + ", diem trung binh=" + country.get(4)
+                        + "]");
     }
 }
