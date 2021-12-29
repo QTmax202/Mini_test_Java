@@ -45,11 +45,6 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
-                "name='" + name +
-                ", age=" + age +
-                ", sex='" + sex +
-                ", address='" + address +
-                '}';
+        return String.format("%-10s%-10d%-10s%-10s", name, age, sex, address);
     }
 }

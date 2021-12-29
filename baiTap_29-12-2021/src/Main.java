@@ -8,7 +8,7 @@ public class Main {
 
         int choice;
         do {
-            System.out.println("+__________________________꧁☆☬ⓂⒺⓃⓊ☬☆꧂____________________________+");
+            System.out.println("+_________________________꧁☆☬ⓂⒺⓃⓊ☬☆꧂_____________________________+");
             System.out.println("|          1. Nhập thêm sinh viên                                      |");
             System.out.println("|          2. Hiển thị danh sách sinh viên                             |");
             System.out.println("|          3. Sửa sinh viên theo tên sinh viên                         |");
@@ -48,6 +48,7 @@ public class Main {
                     break;
                 case 8:
                     ArrayList<Student> students = manager.readFile(Manager.PATH_NAME);
+                    System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s\n", "", "Tên", "Tuổi", "Giới tính", "Nơi ở", "Điểm trung bình");
                     students.forEach(System.out::println);
                     break;
             }

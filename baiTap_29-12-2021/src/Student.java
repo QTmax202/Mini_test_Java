@@ -16,6 +16,6 @@ public class Student extends Human{
 
     @Override
     public String toString() {
-        return super.toString()+ ", Student { AvgPoint = "+agePoint+" }";
+        return String.format("%-10s%s%.2f","Student", super.toString(), agePoint);
     }
 }

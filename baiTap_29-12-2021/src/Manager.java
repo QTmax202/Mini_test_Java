@@ -66,12 +66,13 @@ public class Manager {
             case 3:
                 return "Orther";
             default:
-                return choiceSex(input);
+                return this.choiceSex(input);
         }
     }
 
     public void displayStudent() {
         for (Student student : students) {
+            System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s\n", "", "Tên", "Tuổi", "Giới tính", "Nơi ở", "Điểm trung bình");
             System.out.println(student);
         }
     }
@@ -96,6 +97,7 @@ public class Manager {
     }
 
     public void displayStudentByPoint() {
+        System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s\n", "", "Tên", "Tuổi", "Giới tính", "Nơi ở", "Điểm trung bình");
         for (Student student : students) {
             if (student.getAgePoint() >= 7.5) {
                 System.out.println(student);
@@ -118,6 +120,7 @@ public class Manager {
     }
 
     public void findStudent() {
+        boolean check = false;
         input.nextLine();
         System.out.print("Nhap ten sinh vien can sua: ");
         String name = input.nextLine();
@@ -141,8 +144,13 @@ public class Manager {
                 System.out.print("Nhap diem : ");
                 double point = input.nextDouble();
                 student.setAgePoint(checkAPoint(point, input));
-                System.out.println("Sửa thành công!");
+                check = true;
             }
+        }
+        if (check) {
+            System.out.println("Sửa thành công!");
+        } else {
+            System.out.println("Sửa không thành công!");
         }
         writeFile(students, PATH_NAME);
     }
