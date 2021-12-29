@@ -149,7 +149,7 @@ public class Manager {
             strb.append("Tuổi,");
             strb.append("Giới tính,");
             strb.append("Nơi ở,");
-            strb.append("Điểm trung bình,");
+            strb.append("Điểm trung bình");
             strb.append('\n');
 
             if (students.size() > 0){
