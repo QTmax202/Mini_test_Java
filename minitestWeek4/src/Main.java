@@ -16,7 +16,7 @@ public class Main {
             System.out.println("|          5. Hiển thị danh sách sinh viên theo điểm tăng dần          |");
             System.out.println("|          6. Hiển thị sinh viên có điểm cao nhất                      |");
             System.out.println("|          7. Ghi danh sách sinh viên ra file                          |");
-            System.out.println("|          8. Đọc danh sách sinh viên từ file                          |");
+            System.out.println("|          8. Đọc/ Hiển thị danh sách sinh viên (từ file)              |");
             System.out.println("|          0. Thoát                                                    |");
             System.out.println("+----------------------------------------------------------------------+");
             System.out.print("Nhập lựa chọn: ");
