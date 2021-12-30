@@ -26,7 +26,7 @@ public class Main {
                     System.exit(0);
                     break;
                 case 1:
-                    manager.createStudent();
+                    System.out.println(manager.createStudent());
                     break;
                 case 2:
                     manager.fixStudent();
