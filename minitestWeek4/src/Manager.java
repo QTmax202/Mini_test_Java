@@ -57,7 +57,7 @@ public class Manager {
         System.out.print("Nhap ten: ");
         String name = input.nextLine();
         System.out.print("Nhap tuoi: ");
-        int age = input.nextInt();
+        int age = checkAge(input.nextInt(),input);
         System.out.print("Nhap diem Toan: ");
         double point1 = input.nextDouble();
         point1 = checkAPoint(point1, input);
@@ -79,6 +79,14 @@ public class Manager {
             piont = input.nextInt();
         }
         return piont;
+    }
+
+    public int checkAge(int age, Scanner input) {
+        while (age < 0) {
+            System.out.print("Nhap sai sai tuoi: ");
+            age = input.nextInt();
+        }
+        return age;
     }
 
     public int checkId(int id, Scanner input){
@@ -124,7 +132,7 @@ public class Manager {
                     student.setName(name1);
                 }
                 System.out.print("Nhap tuoi: ");
-                student.setAge(input.nextInt());
+                student.setAge(checkAge(input.nextInt(),input));
                 System.out.print("Nhap diem Toan: ");
                 student.setMathPoint(checkAPoint(input.nextDouble(),input));
                 System.out.print("Nhap diem Ly: ");
