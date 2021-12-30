@@ -150,6 +150,14 @@ public class Manager {
         }
     }
 
+    public void listStudentByPoint1(){
+        students.sort((o1,o2) -> Double.compare(o2.getAvgPoint(), o1.getAvgPoint()));
+        System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n", "", "ID", "Tên", "Tuổi", "Điểm Toán", "Điểm lý", "Điểm Hóa");
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
+
     public ArrayList<Student> studentByPointMax(){
         ArrayList<Student> stu = new ArrayList<>();
         stu.clear();
