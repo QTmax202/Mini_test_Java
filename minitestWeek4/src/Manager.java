@@ -151,19 +151,18 @@ public class Manager {
     }
 
     public void listStudentByPoint(){
-        students.sort((o1,o2) -> Double.compare(o1.getAvgPoint(), o2.getAvgPoint()));
+        students.sort((o1,o2) -> Double.compare(o2.getAvgPoint(), o1.getAvgPoint()));
         System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n", "", "ID", "Tên", "Tuổi", "Điểm Toán", "Điểm lý", "Điểm Hóa");
         for (Student student : students) {
             System.out.println(student);
         }
     }
 
-    public void listStudentByPoint1(){
-        students.sort((o1,o2) -> Double.compare(o2.getAvgPoint(), o1.getAvgPoint()));
-        System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n", "", "ID", "Tên", "Tuổi", "Điểm Toán", "Điểm lý", "Điểm Hóa");
-        for (Student student : students) {
-            System.out.println(student);
-        }
+    public ArrayList<Student> listStudentByPoint1(){
+        students.sort((o1,o2) -> Double.compare(o1.getAvgPoint(), o2.getAvgPoint()));
+        ArrayList<Student> studentList = new ArrayList<>();
+        studentList.addAll(students);
+        return studentList;
     }
 
     public ArrayList<Student> studentByPointMax(){

@@ -44,7 +44,9 @@ public class Main {
                     }
                     break;
                 case 5:
-                    manager.listStudentByPoint();
+                    ArrayList<Student> studentsList = manager.listStudentByPoint1();
+                    System.out.printf("%-10s%-10s%-10s%-10s%-10s%-10s%-10s\n", "", "ID", "Tên", "Tuổi", "Điểm Toán", "Điểm lý", "Điểm Hóa");
+                    studentsList.forEach(System.out::println);
                     break;
                 case 6:
                     ArrayList<Student> studentsMaxPoint = manager.studentByPointMax();
