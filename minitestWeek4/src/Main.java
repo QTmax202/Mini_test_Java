@@ -8,17 +8,17 @@ public class Main {
         int choice;
         do {
             System.out.println();
-            System.out.println("❀_________________________꧁☆☬ⓂⒺⓃⓊ☬☆꧂____________________________❀");
-            System.out.println("|          1. Nhập thêm sinh viên                                      |");
-            System.out.println("|          2. Sửa sinh viên theo mã sinh viên                          |");
-            System.out.println("|          3. Xóa sinh viên theo mã sinh viên                          |");
-            System.out.println("|          4. Hiển thị sinh viên theo mã sinh viên                     |");
-            System.out.println("|          5. Hiển thị danh sách sinh viên theo điểm tăng dần          |");
-            System.out.println("|          6. Hiển thị sinh viên có điểm cao nhất                      |");
-            System.out.println("|          7. Ghi danh sách sinh viên ra file                          |");
-            System.out.println("|          8. Đọc/ Hiển thị danh sách sinh viên (từ file)              |");
-            System.out.println("|          0. Thoát                                                    |");
-            System.out.println("+----------------------------------------------------------------------+");
+            System.out.println("❀________________꧁☆☬ⓂⒺⓃⓊ☬☆꧂___________________❀");
+            System.out.println("| 1. Nhập thêm sinh viên                             |");
+            System.out.println("| 2. Sửa sinh viên theo mã sinh viên                 |");
+            System.out.println("| 3. Xóa sinh viên theo mã sinh viên                 |");
+            System.out.println("| 4. Hiển thị sinh viên theo mã sinh viên            |");
+            System.out.println("| 5. Hiển thị danh sách sinh viên theo điểm tăng dần |");
+            System.out.println("| 6. Hiển thị sinh viên có điểm cao nhất             |");
+            System.out.println("| 7. Ghi danh sách sinh viên ra file                 |");
+            System.out.println("| 8. Đọc/ Hiển thị danh sách sinh viên (từ file)     |");
+            System.out.println("| 0. Thoát                                           |");
+            System.out.println("+----------------------------------------------------+");
             System.out.print("Nhập lựa chọn: ");
             choice = input.nextInt();
             switch (choice) {
